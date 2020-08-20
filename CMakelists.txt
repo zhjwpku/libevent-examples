@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(libevent-examples VERSION 1.0.0 LANGUAGES C CXX)
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/")
+
+find_package(Event 2.1 REQUIRED)
+message(STATUS ${EVENT_INCLUDE_DIR})
+message(STATUS ${EVENT_LIBRARIES})
+
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_subdirectory(echo-server)
